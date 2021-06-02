@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
 
 import Menu from 'src/components/Menu';
 import Home from 'src/components/Home';
-// import Recipe from 'src/components/Recipe';
-// import Error from 'src/components/Error';
+import Recipe from 'src/components/Recipe';
+import Error from 'src/components/Error';
 
 import recipesTest from 'src/data';
 
@@ -19,12 +20,31 @@ function App(props) {
   if (props.loading) {
     return <Loading />;
   }
+
   return (
     <div className="app">
       <Menu recipes={recipes.list} />
-      <Home recipes={recipes.list} />
-      {/* <Recipe recipe={recipesTest[0]} /> */}
-      {/* <Error /> */}
+      <Route path="/" exact>
+        <Home recipes={recipes.list} />
+      </Route>
+      {/* {recipes.list.map((recipeObject) => (
+        <Route path={`/recipe/${recipeObject.slug}`}>
+          <Recipe recipe={recipeObject} />
+        </Route>
+      ))} */}
+      <Route
+        path="/recipe/:slug"
+        render={(routerObject) => {
+          const { slug } = routerObject.match.params;
+          const recipe = recipes.list.find((recipeObject) => recipeObject.slug === slug);
+          if (!recipe) {
+            return <Error />;
+          }
+          return (
+            <Recipe recipe={recipe} />
+          );
+        }}
+      />
     </div>
   );
 }

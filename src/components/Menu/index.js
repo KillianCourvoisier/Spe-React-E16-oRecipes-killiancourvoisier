@@ -1,24 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 import './style.scss';
 
 const Menu = ({ recipes }) => (
   <nav className="menu">
-    <a
-      className="menu-link menu-link--active"
-      href="/"
+    <NavLink
+      exact
+      activeClassName="menu-link--active"
+      className="menu-link"
+      to="/"
     >
       Accueil
-    </a>
+    </NavLink>
     {recipes.map((recipe) => (
-      <a
+      <NavLink
+        exact
+        activeClassName="menu-link--active"
         key={recipe.id}
         className="menu-link"
-        href={`/recipe/${recipe.slug}`}
+        to={`/recipe/${recipe.slug}`}
       >
         {recipe.title}
-      </a>
+      </NavLink>
     ))}
   </nav>
 );
