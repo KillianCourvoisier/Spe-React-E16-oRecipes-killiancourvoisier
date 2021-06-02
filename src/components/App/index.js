@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 
-import Menu from 'src/components/Menu';
-import Home from 'src/components/Home';
-import Recipe from 'src/components/Recipe';
+import Menu from 'src/containers/Menu';
+import Home from 'src/containers/Home';
+import Recipe from 'src/containers/Recipe';
 import Error from 'src/components/Error';
 
 import recipesTest from 'src/data';
@@ -23,9 +23,9 @@ function App(props) {
 
   return (
     <div className="app">
-      <Menu recipes={recipes.list} />
+      <Menu />
       <Route path="/" exact>
-        <Home recipes={recipes.list} />
+        <Home />
       </Route>
       {/* {recipes.list.map((recipeObject) => (
         <Route path={`/recipe/${recipeObject.slug}`}>
@@ -34,16 +34,7 @@ function App(props) {
       ))} */}
       <Route
         path="/recipe/:slug"
-        render={(routerObject) => {
-          const { slug } = routerObject.match.params;
-          const recipe = recipes.list.find((recipeObject) => recipeObject.slug === slug);
-          if (!recipe) {
-            return <Error />;
-          }
-          return (
-            <Recipe recipe={recipe} />
-          );
-        }}
+        component={Recipe}
       />
     </div>
   );

@@ -10,3 +10,5 @@ export default (stateActuel = initialState, action = {}) => {
       return stateActuel;
   }
 };
+
+export const findOneRecipe = (list, slug) => list.find((elem) => elem.slug === slug);
