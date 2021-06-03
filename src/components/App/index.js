@@ -5,18 +5,13 @@ import { Route } from 'react-router-dom';
 import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
 import Recipe from 'src/containers/Recipe';
-import Error from 'src/components/Error';
-
-import recipesTest from 'src/data';
 
 import Loading from './Loading';
 
 import './style.scss';
 
 function App(props) {
-  const recipes = {
-    list: recipesTest,
-  };
+  // eslint-disable-next-line react/destructuring-assignment
   if (props.loading) {
     return <Loading />;
   }
