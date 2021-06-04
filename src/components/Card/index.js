@@ -20,11 +20,18 @@ const Card = ({
   </article>
 );
 
+Card.defaultProps = {
+  thumbnail: '',
+  title: '',
+  difficulty: '',
+  slug: '',
+};
+
 Card.propTypes = {
-  thumbnail: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  difficulty: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string,
+  title: PropTypes.string,
+  difficulty: PropTypes.string,
+  slug: PropTypes.string,
 };
 
 export default Card;

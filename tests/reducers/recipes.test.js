@@ -7,7 +7,7 @@ import reducer, {
   expectedDefaultReturn,
   expectedEmptyArray,
   expectedOneElementArray,
-  // expectedSeveralElementArray,
+  expectedSeveralElementArray,
 
 } from 'src/store/reducer';
 
@@ -60,8 +60,12 @@ describe('homeTitle Selectors', () => {
       expect(getHomeTitle([])).to.eql(expectedEmptyArray);
     });
 
-    // it('should return default object if given one element in array', () => {
-    //   expect(getHomeTitle(['1'])).to.eql(expectedOneElementArray);
-    // });
+    it('should return default object if given one element in array', () => {
+      expect(getHomeTitle(['1'])).to.eql(expectedOneElementArray);
+    });
+
+    it('should return default object if given several element in array', () => {
+      expect(getHomeTitle(['1', '3', 78])).to.eql(expectedSeveralElementArray);
+    });
   });
 });

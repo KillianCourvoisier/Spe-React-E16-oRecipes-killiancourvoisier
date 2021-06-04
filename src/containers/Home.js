@@ -3,7 +3,7 @@ import Home from 'src/components/Home';
 import { appInit } from 'src/actions';
 
 const mapStateToProps = (state) => ({
-  recipes: state.list,
+  recipes: state.recipes.list,
 });
 
 const mapDispatchToProps = (dispatch) => ({
