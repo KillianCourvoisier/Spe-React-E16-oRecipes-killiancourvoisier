@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import LoginForm from 'src/components/LoginForm';
 
-import { userInputChange } from 'src/actions/userActions';
+import { userInputChange, userLogin, userLogout } from 'src/actions/userActions';
 
 const mapStateToProps = (state) => {
   const {
@@ -22,10 +22,12 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   handleLogin: () => {
-    console.log('login');
+    const action = userLogin();
+    dispatch(action);
   },
-  handleLogout: (evt) => {
-    console.log('logout');
+  handleLogout: () => {
+    const action = userLogout();
+    dispatch(action);
   },
 });
 

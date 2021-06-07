@@ -1,10 +1,10 @@
 import { USER_LOGIN_INPUT_CHANGE } from 'src/actions//userActions';
 
 const initialState = {
-  email: 'toto@truc.com',
-  password: 'truc',
+  email: 'bouclierman@herocorp.io',
+  password: 'jennifer',
   isLogged: false,
-  loggedMessage: 'Welcome toto',
+  loggedMessage: 'Welcome John',
 };
 
 const reducer = (state = initialState, action = {}) => {

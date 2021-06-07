@@ -10,7 +10,6 @@
     "test": "cross-env NODE_PATH=./ mocha --require tests/.setup.js './{,!(node_modules)/**/}*.test.js'",
     "test:watch": "cross-env NODE_PATH=./ mocha --watch --require tests/.setup.js './{,!(node_modules)/**/}*.test.js'"
   },
-
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
@@ -56,6 +55,7 @@
     "webpack-merge": "^5.7.3"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
