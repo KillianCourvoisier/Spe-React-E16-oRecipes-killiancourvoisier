@@ -1,6 +1,6 @@
 /* eslint-disable arrow-body-style */
 // == Import : npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
@@ -16,9 +16,10 @@ import Instructions from './Instructions';
 import './style.scss';
 
 // == Composant
-function Recipe({ recipe }) {
+function Recipe({ recipe, fetchOneRecipe }) {
+  useEffect(fetchOneRecipe, []);
   if (!recipe) {
-    return <Redirect to="/error" />;
+    return <p>Chargement</p>;
   }
   return (
     <Page>
@@ -50,6 +51,7 @@ Recipe.propTypes = {
     ingredients: PropTypes.array.isRequired,
     instructions: PropTypes.array.isRequired,
   }),
+  fetchOneRecipe: PropTypes.func.isRequired,
 };
 
 Recipe.defaultProps = {

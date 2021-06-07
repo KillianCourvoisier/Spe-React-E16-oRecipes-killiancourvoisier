@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
 import Menu from 'src/components/Menu';
 
-const mapStateToProps = (state) => ({
+const mapState = (state) => ({
   recipes: state.recipes.list,
 });
 
-// eslint-disable-next-line no-unused-vars
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatch = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default connect(mapState, mapDispatch)(Menu);

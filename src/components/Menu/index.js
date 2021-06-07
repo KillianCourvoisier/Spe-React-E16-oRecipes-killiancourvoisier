@@ -14,6 +14,14 @@ const Menu = ({ recipes }) => (
     >
       Accueil
     </NavLink>
+    <NavLink
+      exact
+      activeClassName="menu-link--active"
+      className="menu-link"
+      to="/favoris"
+    >
+      Favoris
+    </NavLink>
     {recipes.map((recipe) => (
       <NavLink
         exact

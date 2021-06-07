@@ -3,7 +3,7 @@ import LoginForm from 'src/components/LoginForm';
 
 import { userInputChange, userLogin, userLogout } from 'src/actions/userActions';
 
-const mapStateToProps = (state) => {
+const mapState = (state) => {
   const {
     email, password, isLogged, loggedMessage,
   } = state.user;
@@ -15,10 +15,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatch = (dispatch) => ({
   changeField: (valeur, name) => {
+    // Pour créer une propriété d'objet
+    // en fonction de ce que contient une variable
+    // je peux mettre le nom de la variable entre []
     const data = { [name]: valeur };
-    const action = userInputChange(data, dispatch);
+    const action = userInputChange(data);
     dispatch(action);
   },
   handleLogin: () => {
@@ -31,4 +34,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
+export default connect(mapState, mapDispatch)(LoginForm);

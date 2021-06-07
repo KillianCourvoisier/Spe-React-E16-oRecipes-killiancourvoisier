@@ -1,16 +1,10 @@
 import { connect } from 'react-redux';
 import Home from 'src/components/Home';
-import { appInit } from 'src/actions';
 
-const mapStateToProps = (state) => ({
+const mapState = (state) => ({
   recipes: state.recipes.list,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  appInit: () => {
-    const action = appInit();
-    dispatch(action);
-  },
-});
+const mapDispatch = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapState, mapDispatch)(Home);
