@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
 import Recipe from 'src/containers/Recipe';
+import LoginForm from 'src/containers/LoginForm';
 
 import Loading from './Loading';
 
@@ -19,6 +20,7 @@ function App(props) {
   return (
     <div className="app">
       <Menu />
+      <LoginForm />
       <Route path="/" exact>
         <Home />
       </Route>
